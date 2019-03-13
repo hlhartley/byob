@@ -1,13 +1,20 @@
 const csv = require('csv-parser');
 const fs = require('fs');
 
-const loadCsv = (file) => {
+const loadCsv = (file, columns = [], transformFn = () => {}) => {
     return new Promise((resolve, reject) => {
         const data = [];
         try {
             fs.createReadStream(file)
                 .pipe(csv())
-                .on('data', (row) => data.push(row))
+                .on('data', (row) => {
+                    columns.forEach(col => {
+                        if (row[col]) {
+                            row[col] = transformFn(row[col])
+                        }
+                    })
+                    data.push(row)
+                })
                 .on('end', () => resolve(data))
         } catch (err) {
             reject(err);
