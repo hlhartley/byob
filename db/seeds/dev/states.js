@@ -1,3 +1,5 @@
+const { loadCsv } = require('../../../helpers/csvLoader');
+
 const createState = (knex, state) => {
   return knex('states').insert({
     name: state.name,
@@ -16,9 +18,9 @@ exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('states').del()
     .then(() => knex('counties').del())
-    .then(() => {
+    .then(async () => {
       let statePromises = [];
-  
+      const statesData = await loadCsv('./data/states.csv');
       statesData.forEach(state => {
         statePromises.push(createState(knex, state));
     });
