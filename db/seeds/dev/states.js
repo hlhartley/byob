@@ -1,4 +1,4 @@
-const { loadCsv } = require('../../../helpers/csvLoader');
+const { loadCsv, removeCommas } = require('../../../helpers/csvLoader');
 
 const createState = (knex, state) => {
   return knex('states').insert({
@@ -8,14 +8,7 @@ const createState = (knex, state) => {
   }, 'id')
 }
 
-let statesData = [{
-  name: 'Alabama',
-  capital: 'Montgomery',
-  population: 4849377
-}]
-
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
   return knex('states').del()
     .then(() => knex('counties').del())
     .then(async () => {
