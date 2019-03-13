@@ -1,16 +1,17 @@
 const csv = require('csv-parser');
 const fs = require('fs');
 
-const loadCsv = (file, columns = [], transformFn = () => {}) => {
+const loadCsv = (file, columnTransformations = {}) => {
     return new Promise((resolve, reject) => {
         const data = [];
         try {
             fs.createReadStream(file)
                 .pipe(csv())
                 .on('data', (row) => {
-                    columns.forEach(col => {
+                    Object.keys(columnTransformations).forEach(col => {
                         if (row[col]) {
-                            row[col] = transformFn(row[col])
+                            const transformFn = columnTransformations[col];
+                            row[col] = transformFn(row[col]);
                         }
                     })
                     data.push(row)
@@ -26,7 +27,12 @@ const removeCommas = (num) => {
     return num.replace(/,/g, '');
 }
 
+const upperCase = (str) => {
+    return str.toUpperCase();
+}
+
 module.exports = {
     loadCsv,
     removeCommas,
+    upperCase,
 }
