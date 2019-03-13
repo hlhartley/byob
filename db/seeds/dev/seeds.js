@@ -1,4 +1,4 @@
-const { loadCsv, removeCommas } = require('../../../helpers/csvLoader');
+const { loadCsv, removeCommas, upperCase } = require('../../../helpers/csvLoader');
 
 const createState = (knex, state) => {
   return knex('states').insert({
@@ -21,18 +21,20 @@ exports.seed = function(knex, Promise) {
     .then(() => knex('states').del())
     .then(async () => {
       let statePromises = [];
-      const statesData = await loadCsv('./data/states.csv');
-      statesData.forEach(state => {
-          statePromises.push(createState(knex, state));
+      const statesData = await loadCsv('./data/states.csv', {
+        name: upperCase,
+        capital: upperCase,
       });
+      statesData.forEach(state => statePromises.push(createState(knex, state)));
       return Promise.all(statePromises);
     })
     .then(async () => {
       let countiesPromises = [];
-      const countiesData = await loadCsv('./data/counties.csv', ['population'], removeCommas);
-      countiesData.forEach(county => {
-          countiesPromises.push(createCounty(knex, county));
-      })
+      const countiesData = await loadCsv('./data/counties.csv', {
+        population: removeCommas,
+        name: upperCase,
+      });
+      countiesData.forEach(county => countiesPromises.push(createCounty(knex, county)));
       return Promise.all(countiesPromises);
     })
     .catch(error => console.log(`Error seeding data: ${error}`));
