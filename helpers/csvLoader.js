@@ -23,7 +23,7 @@ const loadCsv = (file, columns = [], transformFn = () => {}) => {
 }
 
 const removeCommas = (num) => {
-    return num.replace(',', '');
+    return num.replace(/,/g, '');
 }
 
 module.exports = {
