@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
         table.increments('id').primary();
         table.string('name');
         table.string('capital');
-        table.string('population');
+        table.biginteger('population');
 
         table.timestamps(true, true);
     }),
