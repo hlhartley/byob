@@ -2,9 +2,9 @@
 
 ### Endpoints
 **Get all states:** `GET /api/v1/states`
-- Response
-Status: 200
-Example: [{
+- Response:
+> Status: 200
+> Example: [{
         "id": 1,
         "name": "ALABAMA",
         "capital": "MONTGOMERY",
