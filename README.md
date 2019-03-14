@@ -11,8 +11,7 @@
         "population": "4849377",
         "created_at": "2019-03-14T04:49:03.802Z",
         "updated_at": "2019-03-14T04:49:03.802Z"
-    }
- ]
+    }]
 
 **Get all counties:** `GET /api/v1/counties`
 - Response
