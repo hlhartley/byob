@@ -4,7 +4,7 @@
 **Get all states:** `GET /api/v1/states`
 - Response Status: 200
 - Response Example: 
-> [{
+ [{
         "id": 1,
         "name": "ALABAMA",
         "capital": "MONTGOMERY",
