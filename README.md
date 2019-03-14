@@ -10,12 +10,11 @@ Get all counties: `GET /api/v1/counties`
 Status: 200
 
 Get specific state by id: `GET /api/v1/states/:id`
+- Response
+Status: 200
 
 Parameters:
 
 | Name          | Type          |
 | ------------- | ------------- |
 | `id`          | `integer`     |
-
-- Response
-Status: 200
