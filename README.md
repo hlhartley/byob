@@ -4,14 +4,14 @@
 **Get all states:** `GET /api/v1/states`
 - Response Status: 200
 - Response Example: 
- [{
+ ```[{
         "id": 1,
         "name": "ALABAMA",
         "capital": "MONTGOMERY",
         "population": "4849377",
         "created_at": "2019-03-14T04:49:03.802Z",
         "updated_at": "2019-03-14T04:49:03.802Z"
-    }]
+    }]```
 
 **Get all counties:** `GET /api/v1/counties`
 - Response Status: 200
