@@ -1,16 +1,16 @@
 # byob
 
-GET /api/v1/states
+`GET /api/v1/states`
 
 Response
 Status: 200
 
-GET /api/v1/counties
+`GET /api/v1/counties`
 
 Response
 Status: 200
 
-GET /api/v1/states/:id
+`GET /api/v1/states/:id`
 Parameters
 Name    Type
 id      integer
