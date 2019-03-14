@@ -1,6 +1,6 @@
-# byob
+# Build Your Own Backend (byob)
 
-## Endpoints
+### Endpoints
 **Get all states:** `GET /api/v1/states`
 - Response
 Status: 200
