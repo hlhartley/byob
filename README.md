@@ -1,5 +1,6 @@
 # byob
 
+## Endpoints
 `GET /api/v1/states`
 Response
 Status: 200
@@ -10,6 +11,7 @@ Response
 Status: 200
 
 `GET /api/v1/states/:id`
+
 Parameters:
 
 | Name          | Type          |
