@@ -20,22 +20,21 @@ exports.seed = function(knex, Promise) {
   return knex('counties').del()
     .then(() => knex('states').del())
     .then(async () => {
-      let statePromises = [];
+      // let statePromises = [];
       const statesData = await loadCsv('./data/states.csv', {
         name: upperCase,
         capital: upperCase,
       });
-      statesData.forEach(state => statePromises.push(createState(knex, state)));
-      return Promise.all(statePromises);
+      // statesData.forEach(state => statePromises.push(createState(knex, state)));
+      // return Promise.all(statePromises);
+      return Promise.all(statesData.map(state => createState(knex, state)));
     })
     .then(async () => {
-      let countiesPromises = [];
       const countiesData = await loadCsv('./data/counties.csv', {
         population: removeCommas,
         name: upperCase,
       });
-      countiesData.forEach(county => countiesPromises.push(createCounty(knex, county)));
-      return Promise.all(countiesPromises);
+      return Promise.all(countiesData.map(county => createCounty(knex, county)));
     })
     .catch(error => console.log(`Error seeding data: ${error}`));
 }

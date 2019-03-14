@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 const port = 3000
+var bodyParser = require('body-parser')
+app.use(bodyParser.json())
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
@@ -19,3 +21,88 @@ app.get('/api/v1/states', (request, response) => {
         response.status(500).json({ error });
       });
   });
+
+app.get('/api/v1/counties', (request, response) => {
+  database('counties').select()
+    .then((counties) => {
+      response.status(200).json(counties);
+    })
+    .catch((error) => {
+      response.status(500).json({ error });
+    });
+});
+
+app.get('/api/v1/states/:id', (request, response) => {
+  database('states').where('id', request.params.id).select()
+    .then(states => {
+      if (states.length) {
+        response.status(200).json(states);
+      } else {
+        response.status(404).json({
+          error: `Could not find state with id ${request.params.id}`
+        });
+      }
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
+
+app.get('/api/v1/counties/:id', (request, response) => {
+  database('counties').where('id', request.params.id).select()
+    .then(counties => {
+      if (counties.length) {
+        response.status(200).json(counties);
+      } else {
+        response.status(404).json({
+          error: `Could not find county with id ${request.params.id}`
+        });
+      }
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
+
+app.post('/api/v1/states', (request, response) => {
+  const state = request.body;
+
+  for (let requiredParameter of ['name', 'capital', 'population']) {
+    if (!state[requiredParameter]) {
+      return response
+        .status(422)
+        .send({ error: `Expected format: { name: <String>, capital: <String>, population: <Integer> }. You're missing a "${requiredParameter}" property.`});
+    }
+  }
+
+  database('states').insert(state, 'id')
+    .then(state => {
+      response.status(201).json({ id: state[0] })
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
+
+app.post('/api/v1/counties', (request, response) => {
+  const county = request.body;
+
+  for (let requiredParameter of ['name', 'state_id', 'population']) {
+    if (!county[requiredParameter]) {
+      return response
+        .status(422)
+        .send({ error: `Expected format: { name: <String>, state_id: <Integer>, population: <Integer> }. You're missing a "${requiredParameter}" property.`});
+    }
+  }
+
+  database('counties').insert(county, 'id')
+    .then(county => {
+      response.status(201).json({ id: county[0] })
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
+
+  // delete state / county
+  // if delete state => delete all counties associated
