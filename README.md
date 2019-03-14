@@ -12,8 +12,7 @@ Status: 200
 **Get specific state by id:** `GET /api/v1/states/:id`
 - Response
 Status: 200
-
-Parameters:
+- Parameters:
 
 | Name          | Type          |
 | ------------- | ------------- |
