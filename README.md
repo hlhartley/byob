@@ -11,9 +11,9 @@ Status: 200
 
 `GET /api/v1/states/:id`
 Parameters:
-| Name          | Type          | 
-| ------------- |:-------------:| 
-| `id`          | `integer`     | 
-
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
 Response
 Status: 200
