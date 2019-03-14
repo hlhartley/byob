@@ -69,14 +69,12 @@
 | Name          | Type          |
 | ------------- | ------------- |
 | `name`        | `string`      |
-| `state_id`    | `ingeger`     |
+| `state_id`    | `integer`     |
 | `population`  | `integer`     |
 
 **Delete state:** `DELETE /api/v1/states/:id`
-- Response
-Status: 204
+- Response Status: 204
 
 **Delete county:** `DELETE /api/v1/counties/:id`
-- Response
-Status: 204
+- Response Status: 204
 
