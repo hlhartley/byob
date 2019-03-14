@@ -1,16 +1,15 @@
 # byob
 
 ## Endpoints
-`GET /api/v1/states`
-Response
+Get all states: `GET /api/v1/states`
+- Response
 Status: 200
 
-`GET /api/v1/counties`
-
-Response
+Get all counties: `GET /api/v1/counties`
+- Response
 Status: 200
 
-`GET /api/v1/states/:id`
+Get specific state by id: `GET /api/v1/states/:id`
 
 Parameters:
 
@@ -18,5 +17,5 @@ Parameters:
 | ------------- | ------------- |
 | `id`          | `integer`     |
 
-Response
+- Response
 Status: 200
