@@ -1,4 +1,6 @@
 # Build Your Own Backend (byob)
+Original Project Spec: http://frontend.turing.io/projects/build-your-own-backend.html
+
 ### Schema
 ![screenshot](states-counties-schema.png)
 
