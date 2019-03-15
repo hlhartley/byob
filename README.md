@@ -1,6 +1,6 @@
 # Build Your Own Backend (byob)
 ### Schema
-![screenshot]()
+![screenshot](states-counties-schema.png)
 
 ### Endpoints
 **Get all states:** `GET /api/v1/states`
