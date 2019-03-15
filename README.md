@@ -1,6 +1,6 @@
 # Build Your Own Backend (byob)
 ### Summary
-The goals of byob were to build a RESTful API for a large dataset, create a one-to-many relational database schema design, and deploy the API to Heroku. There are 4 GET endpoints, 2 POST endpoints, and 2 DELETE endpoints (as seen below).
+byob included building a RESTful API for a large dataset, creating a one-to-many relational database schema design, and deploying the API to Heroku. There are 4 GET endpoints, 2 POST endpoints, and 2 DELETE endpoints (as seen below).
 
 Original Project Spec: http://frontend.turing.io/projects/build-your-own-backend.html
 
