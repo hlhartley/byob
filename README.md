@@ -13,6 +13,22 @@
         "population": "4849377",
         "created_at": "2019-03-14T04:49:03.802Z",
         "updated_at": "2019-03-14T04:49:03.802Z"
+    },
+    {
+        "id": 2,
+        "name": "ALASKA",
+        "capital": "JUNEAU",
+        "population": "736732",
+        "created_at": "2019-03-14T04:49:03.808Z",
+        "updated_at": "2019-03-14T04:49:03.808Z"
+    },
+    {
+        "id": 3,
+        "name": "ARKANSAS",
+        "capital": "LITTLE ROCK",
+        "population": "2966369",
+        "created_at": "2019-03-14T04:49:03.811Z",
+        "updated_at": "2019-03-14T04:49:03.811Z"
     }
    ]
     ```
@@ -29,6 +45,22 @@
         "population": "574613",
         "created_at": "2019-03-14T04:49:03.846Z",
         "updated_at": "2019-03-14T04:49:03.846Z"
+      },
+      {
+        "id": 11,
+        "name": "DOUGLAS",
+        "state_id": 6,
+        "population": "335299",
+        "created_at": "2019-03-14T04:49:03.852Z",
+        "updated_at": "2019-03-14T04:49:03.852Z"
+      },
+      {
+          "id": 31,
+          "name": "FRANKLIN",
+          "state_id": 17,
+          "population": "1292000",
+          "created_at": "2019-03-14T04:49:03.861Z",
+          "updated_at": "2019-03-14T04:49:03.861Z"
       }
     ]
 ```
