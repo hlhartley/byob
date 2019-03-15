@@ -1,4 +1,6 @@
 # Build Your Own Backend (byob)
+### Schema
+![screenshot]()
 
 ### Endpoints
 **Get all states:** `GET /api/v1/states`
