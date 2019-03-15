@@ -104,21 +104,27 @@ app.post('/api/v1/counties', (request, response) => {
     });
 });
 
-app.delete('/api/v1/counties/:id', (request, response) => {
-  database('counties').where('id', request.params.id).delete()
-    .then(() => {
-      response.status(204)
-    })
-    .catch(error => {
-      response.status(500).json({ error });
-    });
+app.delete('/api/v1/counties/:id', async (request, response) => {
+  try {
+    await database('counties').where('id', request.params.id).delete()
+  } catch {
+    response.status(500).json({ error })
+    response.status(204)
+  }
+  // database('counties').where('id', request.params.id).delete()
+  //   .then(() => {
+  //     response.status(204)
+  //   })
+  //   .catch(error => {
+  //     response.status(500).json({ error });
+  //   });
 });
 
 app.delete('/api/v1/states/:id', async (request, response) => {
   try {
     await database('counties').where('state_id', request.params.id).delete()
     await database('states').where('id', request.params.id).delete()
-    response.status(204).send('SUCCESS DELETE')
+    response.status(204)
   } catch {
     response.status(500).json({ error });
   }
@@ -138,7 +144,3 @@ app.delete('/api/v1/states/:id', async (request, response) => {
 //       response.status(500).json({ error });
 //     });
 // });
-
-
-  // delete state
-  // if delete state => delete all counties associated
