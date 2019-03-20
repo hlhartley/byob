@@ -2,8 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors');
 app.use(cors());
-app.use(express.json())
-// test
+app.use(express.json());
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
