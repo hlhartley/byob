@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_ENV=test jest",
     "load-csv": "node ./helpers/csvLoader.js"
   },
   "keywords": [],
@@ -17,6 +17,7 @@
     "csv-parser": "^2.2.0",
     "express": "^4.16.4",
     "fs": "0.0.1-security",
+    "jest": "^24.5.0",
     "knex": "^0.16.3",
     "pg": "^7.8.2"
   }
